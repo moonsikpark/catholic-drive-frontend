@@ -1,17 +1,17 @@
-import React from 'react';
-import NavBar from './NavBar';
-import FolderExplorer from './browser/FolderExplorer';
-import Container from '@mui/material/Container';
+import { Routes, Route } from 'react-router-dom';
+import FolderView from './views/FolderView';
+import FileView from './views/FileView';
+import MainPageView from './views/MainPageView';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div>
-      <NavBar />
-      <Container>
-        <FolderExplorer />
-      </Container>
-    </div>
+    <Routes>
+      <Route path="/" element={<MainPageView />} />
+      <Route path="/drive/folder/" element={<FolderView />} />
+      <Route path="/drive/folder/:folderId/" element={<FolderView />} />
+      <Route path="/drive/file/:fileId/" element={<FileView />} />
+    </Routes>
   );
-};
+}
 
 export default App;

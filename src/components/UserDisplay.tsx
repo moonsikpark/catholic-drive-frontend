@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { fetchUserInfo } from '../api';
+import { LoginUser, LogoutUser } from '../api/index';
 import { User } from '../api/types';
 
 const UserDisplay: React.FC = () => {
@@ -15,13 +16,22 @@ const UserDisplay: React.FC = () => {
     loadUserInfo();
   }, []);
 
+  const handleLogout = async () => {
+    LogoutUser();
+  }
+
+  const handleLogin = async () => {
+    LoginUser();
+  }
+
   return (
     <>
-      {user ? (
-        <Typography variant="body1">{user.username}</Typography>
-      ) : (
-        <Button color="inherit">Login</Button>
-      )}
+      {user ?
+        <Typography variant="body1">{user.username}</Typography> : null
+      }
+
+      {user ? <Button variant="contained" color="primary" onClick={handleLogout}>Logout</Button> : <Button variant="contained" color="primary" onClick={handleLogin}>Login</Button>}
+
     </>
   );
 };

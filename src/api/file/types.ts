@@ -3,6 +3,6 @@ export interface DriveFile {
     created_at: string;
     updated_at: string;
     file: string;
-    folder: string;
+    folder: number;
     name: string;
 }

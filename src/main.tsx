@@ -6,7 +6,7 @@ import App from './components/App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>  {/* Wrap the app with HashRouter */}
+    <BrowserRouter>
       <CssBaseline />
       <App />
     </BrowserRouter>
